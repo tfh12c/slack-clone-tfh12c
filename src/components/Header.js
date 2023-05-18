@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Avatar } from "@mui/material";
 import { AccessTime } from "@mui/icons-material";
+import { Search } from "@mui/icons-material";
 
 function Header() {
 
@@ -17,6 +18,10 @@ function Header() {
 			</HeaderLeft>
 
 			{/* Header Search Bar */}
+			<HeaderSearch>
+				<Search />
+				<input placeholder="Search..." />
+			</HeaderSearch>
 
 			{/* Header Right */}
 		</HeaderContainer>
@@ -53,4 +58,24 @@ const HeaderAvatar = styled(Avatar)`
 const AccessTimeIcon = styled(AccessTime)`
 	margin-left: auto; 
 	margin-right: 1.875rem;
+`;
+
+const HeaderSearch = styled.div`
+	flex: 0.4;
+	opacity: 1;
+	border-radius: .375rem;
+	background-color: #421f44;
+	text-align: center;
+	display: flex;
+	padding: 0 3.125rem;
+	border: 1px solid gray;
+
+	> input {
+		background-color: transparent;
+		border: none;
+		text-align: center;
+		min-width: 30vw;
+		outline: 0;
+		color: white;
+	}
 `;
