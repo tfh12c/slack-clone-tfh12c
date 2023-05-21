@@ -4,7 +4,7 @@ import { Button } from "@mui/material";
 import { db } from "../firebase";
 import firebase from 'firebase';
 
-function ChatInput({ channelName, channelId }) {
+function ChatInput({ channelName, channelId, chatRef }) {
 	const [input, setInput] = useState('');
 
 	const sendMessage = (event) => {
@@ -18,6 +18,8 @@ function ChatInput({ channelName, channelId }) {
 			user: 'Travis Flynn',
 			userImage: 'https://i.imgur.com/GfYvKsk.jpeg'
 		})
+
+		chatRef.current.scrollIntoView({ behavior: 'smooth' })
 	}
 
 	return (
