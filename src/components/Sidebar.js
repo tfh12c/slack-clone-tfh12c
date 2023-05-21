@@ -15,9 +15,12 @@ import { ExpandMore } from "@mui/icons-material";
 import { Add } from "@mui/icons-material";
 import { useCollection } from 'react-firebase-hooks/firestore';
 import { db } from '../firebase';
+import { auth } from "../firebase";
+import { useAuthState } from 'react-firebase-hooks/auth'
 
 function Sidebar() {
-	const [channels, loading, error] = useCollection(db.collection('rooms'));
+	const [channels] = useCollection(db.collection('rooms'));
+	const [user] = useAuthState(auth);
 
 	return (
 		<SidebarContainer>
@@ -26,7 +29,7 @@ function Sidebar() {
 					<h2>HomeBase</h2>
 					<h3>
 						<FiberManualRecordIcon />
-						Tavers
+						{user.displayName}
 					</h3>
 				</SidebarWorkspace>
 				<CreateIcon />
